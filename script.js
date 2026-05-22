@@ -1,26 +1,26 @@
 const units = {
   vanguard: {
-    code: "AX-17",
-    name: "赤核先锋",
-    line: "高机动突击型，以等离子拳刃撕开防线。",
-    power: 88,
-    armor: 72,
-    speed: 94,
+    code: "QF-01",
+    name: "青霜剑派",
+    line: "剑路清寒，擅以快剑破阵，三尺青锋不染尘。",
+    power: 91,
+    armor: 76,
+    speed: 95,
   },
   sentinel: {
-    code: "BK-02",
-    name: "黑塔哨兵",
-    line: "重装守卫型，肩部磁轨盾阵压制赛道。",
-    power: 81,
-    armor: 96,
-    speed: 58,
+    code: "CY-08",
+    name: "赤羽刀盟",
+    line: "刀势沉烈，擅以重刀压场，火羽一落定胜负。",
+    power: 96,
+    armor: 88,
+    speed: 64,
   },
   wraith: {
-    code: "VL-44",
-    name: "幽蓝瞬影",
-    line: "光学扰动型，在雨幕里留下错位残影。",
-    power: 74,
-    armor: 63,
+    code: "MY-12",
+    name: "墨隐楼",
+    line: "身法如墨，擅隐踪奇袭，半步之间换天地。",
+    power: 78,
+    armor: 66,
     speed: 99,
   },
 };
@@ -39,7 +39,7 @@ const boostButton = document.querySelector("#boostButton");
 const arenaConsole = document.querySelector(".arena-console");
 const heatValue = document.querySelector("#heatValue");
 const accessForm = document.querySelector("#accessForm");
-const pilotName = document.querySelector("#pilotName");
+const heroName = document.querySelector("#heroName");
 const formStatus = document.querySelector("#formStatus");
 
 let heat = 61;
@@ -96,7 +96,7 @@ boostButton.addEventListener("click", () => {
   heat = Math.min(99, heat + 8);
   heatValue.textContent = `${heat}%`;
   arenaConsole.classList.add("boosted");
-  boostButton.querySelector("span:last-child").textContent = heat >= 99 ? "信号已满" : "继续提升";
+  boostButton.querySelector("span:last-child").textContent = heat >= 99 ? "灯阵已盛" : "再添灯火";
 
   window.setTimeout(() => {
     arenaConsole.classList.remove("boosted");
@@ -106,8 +106,8 @@ boostButton.addEventListener("click", () => {
 accessForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  const name = pilotName.value.trim() || "UNKNOWN";
-  formStatus.textContent = `${name} 已接入闭测候补队列`;
+  const name = heroName.value.trim() || "无名侠客";
+  formStatus.textContent = `${name} 已收入试剑帖`;
   formStatus.classList.add("success");
   accessForm.classList.add("submitted");
 });
